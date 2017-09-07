@@ -1,24 +1,19 @@
 #!/usr/bin/env nodemon
 
 const express = require('express');
-const fs = require('fs');
-const dateFormat = require('dateformat');
 const bodyParser = require('body-parser');
 const path = require('path');
-const passport = require('passport');
 const session = require('express-session');
-const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-const router = express.Router();
 
-let idCounter = 1;
+let idCounter = 3;
 let users = [{
-        id: 123,
+        id: 1,
         name: 'Sam',
         email: 'sam@test.com',
         age: 29
     },
     {
-        id: 124,
+        id: 2,
         name: 'Kim',
         email: 'kim@test.com',
         age: 26
@@ -53,6 +48,7 @@ app.get('/form', (req, res) => {
 app.get('/form/:id', (req, res) => {
 
     getUser(req.params.id).then((user)=>{
+        removeUser(req.params.id);
         res.render('form', {
             user: user
         })
