@@ -1,0 +1,42 @@
+doctype html
+html
+    head
+        style.
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 80%;
+            }
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+            tr:nth-child(even) {
+                background-color: #dddddd;
+
+            }
+    body
+        a(href='/')
+            button Home
+        a(href='/form')
+            button Add User
+        table
+            tr
+                th ID
+                th Name
+                th Email
+                th Age
+                th Edit
+            for user in users
+                tr
+                    td= user.id
+                    td= user.name
+                    td= user.email
+                    td= user.age
+                    td
+                        a(href='./delete/' + user.id)
+                            button Delete
+                        a(href='./form/' + user.id)
+                            button Edit
+

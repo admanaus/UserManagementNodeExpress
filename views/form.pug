@@ -1,0 +1,22 @@
+doctype html
+
+html
+    head
+        meta(name='viewport', content='minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no')
+        meta(charset='utf-8')
+        title Create or Edit User
+        style.
+    body
+        a(href='/')
+            button Home
+        a(href='/users')
+            button See Users
+        h1 Create or Edit a user
+        form(action='/form', method='post')
+            label(for='name') Name
+            input#name(type='text', name='name', required='true', value=user.name)
+            label(for='email') Email
+            input#email(type='email', name='email', required='true', value=user.email)
+            label(for='age') Age
+            input#age(type='number', name='age', required='true', value=user.age)
+            button Save
